@@ -22,6 +22,10 @@
 		15DB567C1D20315C00D71338 /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15DB56731D20315C00D71338 /* 9.jpg */; };
 		15DB567D1D20315C00D71338 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15DB56741D20315C00D71338 /* 10.jpg */; };
 		15DB56801D2031E300D71338 /* ImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB567F1D2031E300D71338 /* ImagesTableViewController.m */; };
+		15DB56831D219BBB00D71338 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB56821D219BBB00D71338 /* User.m */; };
+		15DB56861D219C7400D71338 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB56851D219C7400D71338 /* Media.m */; };
+		15DB56891D219D0F00D71338 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB56881D219D0F00D71338 /* Comment.m */; };
+		15DB568C1D21A31400D71338 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB568B1D21A31400D71338 /* DataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,14 @@
 		15DB56741D20315C00D71338 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
 		15DB567E1D2031E300D71338 /* ImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesTableViewController.h; sourceTree = "<group>"; };
 		15DB567F1D2031E300D71338 /* ImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewController.m; sourceTree = "<group>"; };
+		15DB56811D219BBB00D71338 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		15DB56821D219BBB00D71338 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		15DB56841D219C7400D71338 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		15DB56851D219C7400D71338 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
+		15DB56871D219D0F00D71338 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		15DB56881D219D0F00D71338 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		15DB568A1D21A31400D71338 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		15DB568B1D21A31400D71338 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +93,14 @@
 				15DB56411D202C0700D71338 /* AppDelegate.m */,
 				15DB567E1D2031E300D71338 /* ImagesTableViewController.h */,
 				15DB567F1D2031E300D71338 /* ImagesTableViewController.m */,
+				15DB56811D219BBB00D71338 /* User.h */,
+				15DB56841D219C7400D71338 /* Media.h */,
+				15DB56851D219C7400D71338 /* Media.m */,
+				15DB56871D219D0F00D71338 /* Comment.h */,
+				15DB56881D219D0F00D71338 /* Comment.m */,
+				15DB568A1D21A31400D71338 /* DataSource.h */,
+				15DB568B1D21A31400D71338 /* DataSource.m */,
+				15DB56821D219BBB00D71338 /* User.m */,
 				15DB56491D202C0700D71338 /* Assets.xcassets */,
 				15DB564B1D202C0700D71338 /* LaunchScreen.storyboard */,
 				15DB564E1D202C0700D71338 /* Info.plist */,
@@ -194,7 +214,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15DB56831D219BBB00D71338 /* User.m in Sources */,
+				15DB56891D219D0F00D71338 /* Comment.m in Sources */,
+				15DB56861D219C7400D71338 /* Media.m in Sources */,
 				15DB56421D202C0700D71338 /* AppDelegate.m in Sources */,
+				15DB568C1D21A31400D71338 /* DataSource.m in Sources */,
 				15DB563F1D202C0700D71338 /* main.m in Sources */,
 				15DB56801D2031E300D71338 /* ImagesTableViewController.m in Sources */,
 			);
