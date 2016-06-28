@@ -26,6 +26,7 @@
 		15DB56861D219C7400D71338 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB56851D219C7400D71338 /* Media.m */; };
 		15DB56891D219D0F00D71338 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB56881D219D0F00D71338 /* Comment.m */; };
 		15DB568C1D21A31400D71338 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB568B1D21A31400D71338 /* DataSource.m */; };
+		15DB568F1D22D6E700D71338 /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB568E1D22D6E700D71338 /* MediaTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		15DB56881D219D0F00D71338 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		15DB568A1D21A31400D71338 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		15DB568B1D21A31400D71338 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		15DB568D1D22D6E700D71338 /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
+		15DB568E1D22D6E700D71338 /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 				15DB56411D202C0700D71338 /* AppDelegate.m */,
 				15DB567E1D2031E300D71338 /* ImagesTableViewController.h */,
 				15DB567F1D2031E300D71338 /* ImagesTableViewController.m */,
+				15DB568D1D22D6E700D71338 /* MediaTableViewCell.h */,
+				15DB568E1D22D6E700D71338 /* MediaTableViewCell.m */,
 				15DB56811D219BBB00D71338 /* User.h */,
 				15DB56841D219C7400D71338 /* Media.h */,
 				15DB56851D219C7400D71338 /* Media.m */,
@@ -216,6 +221,7 @@
 			files = (
 				15DB56831D219BBB00D71338 /* User.m in Sources */,
 				15DB56891D219D0F00D71338 /* Comment.m in Sources */,
+				15DB568F1D22D6E700D71338 /* MediaTableViewCell.m in Sources */,
 				15DB56861D219C7400D71338 /* Media.m in Sources */,
 				15DB56421D202C0700D71338 /* AppDelegate.m in Sources */,
 				15DB568C1D21A31400D71338 /* DataSource.m in Sources */,
