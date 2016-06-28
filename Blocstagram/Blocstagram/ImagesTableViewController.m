@@ -105,8 +105,8 @@
         // Delete the row from the data source
         Media *item = [self items][indexPath.row];
         DataSource *data = [DataSource sharedInstance];
-        [data didTryToDeleteWithMedia:item];
-//        [self.images removeObject:self.images[indexPath.row]];
+        [data deleteMediaItem:item];
+
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

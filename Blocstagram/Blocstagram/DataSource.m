@@ -115,10 +115,10 @@
     return [NSString stringWithString:s];
 }
 
--(void)didTryToDeleteWithMedia:(Media *)item{
-    NSMutableArray *newData = [_mediaItems copy];
+-(void) deleteMediaItem:(Media *)item{
+    NSMutableArray *newData = [self.mediaItems mutableCopy];
     [newData removeObject:item];
-    _mediaItems = [newData copy];
+    self.mediaItems = [newData copy];
 }
 
 @end

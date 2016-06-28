@@ -11,8 +11,9 @@
 
 @interface DataSource : NSObject
 
-+(instancetype) sharedInstance;
--(void)didTryToDeleteWithMedia:(Media *) item;
 @property (nonatomic, strong, readonly) NSArray *mediaItems;
+
++(instancetype) sharedInstance;
+-(void)deleteMediaItem:(Media *) item;
 
 @end
