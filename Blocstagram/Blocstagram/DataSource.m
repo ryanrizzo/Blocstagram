@@ -11,7 +11,9 @@
 #import "Media.h"
 #import "Comment.h"
 
-@interface DataSource ()
+@interface DataSource () {
+    NSMutableArray *_mediaItems;
+}
 
 @property (nonatomic, strong) NSArray *mediaItems;
 
@@ -36,6 +38,32 @@
     }
     
     return self;
+}
+
+#pragma mark - Key/Value Observing
+
+- (NSUInteger) countOfMediaItems {
+    return self.mediaItems.count;
+}
+
+- (id) objectInMediaItemsAtIndex:(NSUInteger)index {
+    return [self.mediaItems objectAtIndex:index];
+}
+
+- (NSArray *) mediaItemsAtIndexes:(NSIndexSet *)indexes {
+    return [self.mediaItems objectsAtIndexes:indexes];
+}
+
+- (void) insertObject:(Media *)object inMediaItemsAtIndex:(NSUInteger)index {
+    [_mediaItems insertObject:object atIndex:index];
+}
+
+- (void) removeObjectFromMediaItemsAtIndex:(NSUInteger)index {
+    [_mediaItems removeObjectAtIndex:index];
+}
+
+- (void) replaceObjectInMediaItemsAtIndex:(NSUInteger)index withObject:(id)object {
+    [_mediaItems replaceObjectAtIndex:index withObject:object];
 }
 
 - (void) addRandomData {
@@ -116,9 +144,17 @@
 }
 
 -(void) deleteMediaItem:(Media *)item{
-    NSMutableArray *newData = [self.mediaItems mutableCopy];
-    [newData removeObject:item];
-    self.mediaItems = [newData copy];
+    NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems" ];
+    [mutableArrayWithKVO removeObject:item];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
+        [[DataSource sharedInstance] deleteMediaItem:item];
+    }
 }
 
 @end
