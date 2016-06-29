@@ -145,7 +145,11 @@
 
 -(void) deleteMediaItem:(Media *)item{
     NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems" ];
+    NSMutableArray *deletedItemArray = [[NSMutableArray alloc] initWithObjects:item, nil];
     [mutableArrayWithKVO removeObject:item];
+    [deletedItemArray addObjectsFromArray:mutableArrayWithKVO];
+    [mutableArrayWithKVO removeAllObjects];
+    [mutableArrayWithKVO addObjectsFromArray:deletedItemArray];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
