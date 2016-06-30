@@ -75,7 +75,9 @@
 
 -(void) refreshControlDidFire:(UIRefreshControl *) sender {
     [[DataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error){
+        
         [sender endRefreshing];
+        
     }];
 }
 

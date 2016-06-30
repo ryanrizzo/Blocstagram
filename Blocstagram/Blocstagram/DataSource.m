@@ -47,6 +47,7 @@
 - (void) requestOldItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler {
     if (self.isLoadingOlderItems == NO) {
         self.isLoadingOlderItems = YES;
+        
         Media *media = [[Media alloc] init];
         media.user = [self randomUser];
         media.image = [UIImage imageNamed:@"1.jpg"];
@@ -168,11 +169,8 @@
 
 -(void) deleteMediaItem:(Media *)item{
     NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems" ];
-    NSMutableArray *deletedItemArray = [[NSMutableArray alloc] initWithObjects:item, nil];
     [mutableArrayWithKVO removeObject:item];
-    [deletedItemArray addObjectsFromArray:mutableArrayWithKVO];
-    [mutableArrayWithKVO removeAllObjects];
-    [mutableArrayWithKVO addObjectsFromArray:deletedItemArray];
+    [mutableArrayWithKVO insertObject:item atIndex:0];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
