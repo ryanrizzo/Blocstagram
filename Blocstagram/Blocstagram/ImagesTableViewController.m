@@ -75,7 +75,11 @@
 
 -(void) refreshControlDidFire:(UIRefreshControl *) sender {
     [[DataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error){
-        
+        //Inspect error for any details about what might have gone wrong
+        //If error is nil, nothing went wrong
+        if (error) {
+            NSLog(@"Something bad happened: %@", [error localizedDescription]);
+        }
         [sender endRefreshing];
         
     }];
