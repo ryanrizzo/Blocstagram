@@ -133,10 +133,15 @@ static NSParagraphStyle *oddParagraphStyle;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+    [super setSelected:NO animated:animated];
 
     // Configure the view for the selected state
 }
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:NO animated:animated];
+}
+
 
 - (NSAttributedString *) usernameAndCaptionString {
     // #1
@@ -161,10 +166,11 @@ static NSParagraphStyle *oddParagraphStyle;
 - (NSAttributedString *) commentString {
     NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] init];
     NSInteger count = 0;
+    
     for (Comment *comment in self.mediaItem.comments) {
         
         if(comment != [self.mediaItem.comments firstObject]){
-            if(count%2==0){
+            if(count % 2 == 0){
                 paragraphStyle = evenParagraphStyle;
             }else{
                 paragraphStyle = oddParagraphStyle;
@@ -183,7 +189,6 @@ static NSParagraphStyle *oddParagraphStyle;
         
             [commentString appendAttributedString:oneCommentString];
            
-
             count = count+1;
             
         }else{
@@ -213,6 +218,7 @@ static NSParagraphStyle *oddParagraphStyle;
     
     }
     paragraphStyle = evenParagraphStyle;
+    
     return commentString;
 }
 
