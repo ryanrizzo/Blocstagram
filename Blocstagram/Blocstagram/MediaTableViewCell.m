@@ -229,6 +229,15 @@ static NSParagraphStyle *oddParagraphStyle;
         return;
     }
     
+    
+    
+        // Hide the line between cells
+    self.separatorInset = UIEdgeInsetsMake(0, CGRectGetWidth(self.bounds)/2.0, 0, CGRectGetWidth(self.bounds)/2.0);
+}
+
+- (void) updateConstraints {
+    [super updateConstraints];
+    
     // Before layout, calculate the intrinsic size of the labels (the size they "want" to be), and add 20 to the height for some vertical padding.
     CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds), CGFLOAT_MAX);
     CGSize usernameLabelSize = [self.usernameAndCaptionLabel sizeThatFits:maxSize];
@@ -243,9 +252,6 @@ static NSParagraphStyle *oddParagraphStyle;
     } else {
         self.imageHeightConstraint.constant = 0;
     }
-    
-        // Hide the line between cells
-    self.separatorInset = UIEdgeInsetsMake(0, CGRectGetWidth(self.bounds)/2.0, 0, CGRectGetWidth(self.bounds)/2.0);
 }
 
 - (void) setMediaItem:(Media *)mediaItem {
@@ -255,7 +261,7 @@ static NSParagraphStyle *oddParagraphStyle;
     self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
     
     self.commentLabel.attributedText = [self commentString];
-
+    [self setNeedsUpdateConstraints];
 }
 
 + (CGFloat) heightForMediaItem:(Media *)mediaItem width:(CGFloat)width {
