@@ -16,6 +16,8 @@
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
 
+@property (nonatomic, strong) UIButton *shareButton;
+
 @end
 
 @implementation MediaFullScreenViewController
@@ -48,6 +50,13 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
+    
+    self.shareButton = [UIButton new];
+    [self.shareButton addTarget:self action:@selector(shareButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    [self.shareButton setFrame:CGRectMake(320, 20, 50, 15)];
+    [self.view addSubview:self.shareButton];
+    
     
 }
 
@@ -144,6 +153,14 @@
         // #9
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
     }
+}
+
+-(IBAction)shareButtonPressed:(id)sender{
+    
+    NSArray *itemToShare = [[NSArray alloc] initWithObjects:self.media.image, nil];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemToShare applicationActivities:nil];
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 /*

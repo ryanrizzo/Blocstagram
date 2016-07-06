@@ -19,4 +19,6 @@
 
 - (void) centerScrollView;
 
+-(IBAction)shareButtonPressed:(id)sender;
+
 @end
