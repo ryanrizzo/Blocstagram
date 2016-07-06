@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15529B9E1D2C9230007208F4 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529B9D1D2C9230007208F4 /* MediaFullScreenViewController.m */; };
 		15DB563F1D202C0700D71338 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB563E1D202C0700D71338 /* main.m */; };
 		15DB56421D202C0700D71338 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB56411D202C0700D71338 /* AppDelegate.m */; };
 		15DB564A1D202C0700D71338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DB56491D202C0700D71338 /* Assets.xcassets */; };
@@ -33,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		0F18D253FDF77030BA65DFE1 /* libPods-Blocstagram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Blocstagram.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15529B9C1D2C9230007208F4 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
+		15529B9D1D2C9230007208F4 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
 		15DB563A1D202C0700D71338 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DB563E1D202C0700D71338 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15DB56401D202C0700D71338 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 				15DB567F1D2031E300D71338 /* ImagesTableViewController.m */,
 				15DB568D1D22D6E700D71338 /* MediaTableViewCell.h */,
 				15DB568E1D22D6E700D71338 /* MediaTableViewCell.m */,
+				15529B9C1D2C9230007208F4 /* MediaFullScreenViewController.h */,
+				15529B9D1D2C9230007208F4 /* MediaFullScreenViewController.m */,
 				15DB56811D219BBB00D71338 /* User.h */,
 				15DB56821D219BBB00D71338 /* User.m */,
 				15DB56841D219C7400D71338 /* Media.h */,
@@ -299,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15529B9E1D2C9230007208F4 /* MediaFullScreenViewController.m in Sources */,
 				15DB56831D219BBB00D71338 /* User.m in Sources */,
 				15DB56891D219D0F00D71338 /* Comment.m in Sources */,
 				15DB568F1D22D6E700D71338 /* MediaTableViewCell.m in Sources */,
