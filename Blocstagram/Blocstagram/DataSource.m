@@ -310,4 +310,8 @@
     self.instagramOperationManager.responseSerializer = serializer;
 }
 
+-(void)didDoubleTapImageView:(Media *)mediaItem{
+    [self downloadImageForMediaItem:mediaItem];
+}
+
 @end
