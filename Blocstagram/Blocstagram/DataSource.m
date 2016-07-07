@@ -58,27 +58,23 @@
         if (!self.accessToken) {
             [self registerForAccessTokenNotification];
         } else {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 NSString *fullPath = [self pathForFilename:NSStringFromSelector(@selector(mediaItems))];
                 NSArray *storedMediaItems = [NSKeyedUnarchiver unarchiveObjectWithFile:fullPath];
                 
-                dispatch_async(dispatch_get_main_queue(), ^{
+//                dispatch_async(dispatch_get_main_queue(), ^{
                     if (storedMediaItems.count > 0) {
                         NSMutableArray *mutableMediaItems = [storedMediaItems mutableCopy];
                         
                         [self willChangeValueForKey:@"mediaItems"];
                         self.mediaItems = mutableMediaItems;
                         [self didChangeValueForKey:@"mediaItems"];
-                        // #1
-                        for (Media* mediaItem in self.mediaItems) {
-                            [self downloadImageForMediaItem:mediaItem];
-                        }
                         
                     } else {
                         [self populateDataWithParameters:nil completionHandler:nil];
                     }
-                });
-            });
+//                });
+//            });
         }
     }
     
@@ -215,9 +211,8 @@
     for (NSDictionary *mediaDictionary in mediaArray) {
         Media *mediaItem = [[Media alloc] initWithDictionary:mediaDictionary];
         
-        if (mediaItem) {
+        if( mediaItem ) {
             [tmpMediaItems addObject:mediaItem];
-            [self downloadImageForMediaItem:mediaItem];
         }
     }
     
@@ -272,20 +267,45 @@
 
 - (void) downloadImageForMediaItem:(Media *)mediaItem {
     if (mediaItem.mediaURL && !mediaItem.image) {
+        mediaItem.downloadState = MediaDownloadStateDownloadInProgress;
+        
         [self.instagramOperationManager GET:mediaItem.mediaURL.absoluteString
                                  parameters:nil
                                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                         if ([responseObject isKindOfClass:[UIImage class]]) {
                                             mediaItem.image = responseObject;
+                                            mediaItem.downloadState = MediaDownloadStateHasImage;
                                             NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
                                             NSUInteger index = [mutableArrayWithKVO indexOfObject:mediaItem];
                                             [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
+                                            [self saveImages];
+                                        } else {
+                                            mediaItem.downloadState = MediaDownloadStateNonRecoverableError;
+
                                         }
                                         
-                                        [self saveImages];
                                         
                                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                         NSLog(@"Error downloading image: %@", error);
+                                        
+                                        mediaItem.downloadState = MediaDownloadStateNonRecoverableError;
+                                        
+                                        if ([error.domain isEqualToString:NSURLErrorDomain]) {
+                                            // A networking problem
+                                            if (error.code == NSURLErrorTimedOut ||
+                                                error.code == NSURLErrorCancelled ||
+                                                error.code == NSURLErrorCannotConnectToHost ||
+                                                error.code == NSURLErrorNetworkConnectionLost ||
+                                                error.code == NSURLErrorNotConnectedToInternet ||
+                                                error.code == kCFURLErrorInternationalRoamingOff ||
+                                                error.code == kCFURLErrorCallIsActive ||
+                                                error.code == kCFURLErrorDataNotAllowed ||
+                                                error.code == kCFURLErrorRequestBodyStreamExhausted) {
+                                                
+                                                // It might work if we try again
+                                                mediaItem.downloadState = MediaDownloadStateNeedsImage;
+                                            }
+                                        }
                                     }];
     }
 }
@@ -308,10 +328,6 @@
     
     AFCompoundResponseSerializer *serializer = [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[jsonSerializer, imageSerializer]];
     self.instagramOperationManager.responseSerializer = serializer;
-}
-
--(void)didDoubleTapImageView:(Media *)mediaItem{
-    [self downloadImageForMediaItem:mediaItem];
 }
 
 @end

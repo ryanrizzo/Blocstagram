@@ -84,15 +84,6 @@ static NSParagraphStyle *oddParagraphStyle;
         
         self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
         self.tapGestureRecognizer.delegate = self;
-        
-        
-        self.doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapFired:)];
-        self.doubleTapGestureRecognizer.delegate = self;
-        self.doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-       
-        [self.tapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
-        
-        [self.mediaImageView addGestureRecognizer:self.doubleTapGestureRecognizer];
         [self.mediaImageView addGestureRecognizer:self.tapGestureRecognizer];
         
         
@@ -171,10 +162,6 @@ static NSParagraphStyle *oddParagraphStyle;
 
 - (void) tapFired:(UITapGestureRecognizer *)sender {
     [self.delegate cell:self didTapImageView:self.mediaImageView];
-}
-
-- (void) doubleTapFired:(UITapGestureRecognizer *)sender {
-    [[DataSource sharedInstance] didDoubleTapImageView:self.mediaItem];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
