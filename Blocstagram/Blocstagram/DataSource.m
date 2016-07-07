@@ -92,6 +92,50 @@
     }];
 }
 
+#pragma mark - Liking Media Items
+
+- (void) toggleLikeOnMediaItem:(Media *)mediaItem withCompletionHandler:(void (^)(void))completionHandler {
+    NSString *urlString = [NSString stringWithFormat:@"media/%@/likes", mediaItem.idNumber];
+    NSDictionary *parameters = @{@"access_token": self.accessToken};
+    
+    if (mediaItem.likeState == LikeStateNotLiked) {
+        
+        mediaItem.likeState = LikeStateLiking;
+        
+        [self.instagramOperationManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            mediaItem.likeState = LikeStateLiked;
+            
+            if (completionHandler) {
+                completionHandler();
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            mediaItem.likeState = LikeStateNotLiked;
+            
+            if (completionHandler) {
+                completionHandler();
+            }
+        }];
+        
+    } else if (mediaItem.likeState == LikeStateLiked) {
+        
+        mediaItem.likeState = LikeStateUnliking;
+        
+        [self.instagramOperationManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            mediaItem.likeState = LikeStateNotLiked;
+            
+            if (completionHandler) {
+                completionHandler();
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            mediaItem.likeState = LikeStateLiked;
+            
+            if (completionHandler) {
+                completionHandler();
+            }
+        }];
+    }
+}
+
 #pragma mark - Key/Value Observing
 
 - (NSUInteger) countOfMediaItems {
@@ -328,6 +372,32 @@
     
     AFCompoundResponseSerializer *serializer = [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[jsonSerializer, imageSerializer]];
     self.instagramOperationManager.responseSerializer = serializer;
+}
+
+-(NSUInteger)downloadLikes:(Media *)mediaItem{
+    __block NSUInteger likes = 0;
+    
+    NSDictionary *parameters = @{@"access_token": self.accessToken};
+    
+    [self.instagramOperationManager GET: [NSString stringWithFormat:@"media/%@/likes", mediaItem.idNumber]
+                             parameters:parameters
+                                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                    if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                                        
+                                        NSArray *likesArray = responseObject[@"data"];
+                                        
+                                        NSLog(@"lookie here: %ld", likesArray.count );
+                                        
+                                        for(NSDictionary *like in likesArray){
+                                            likes++;
+                                        }
+                                    }
+                                    
+                                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                    NSLog(@"lookie noo: %@", error);
+                                }];
+    
+    return 10+likes;
 }
 
 @end

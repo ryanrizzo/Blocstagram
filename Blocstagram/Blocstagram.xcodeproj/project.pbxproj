@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		15529B9E1D2C9230007208F4 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529B9D1D2C9230007208F4 /* MediaFullScreenViewController.m */; };
+		15529BA11D2ED3FA007208F4 /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BA01D2ED3FA007208F4 /* CircleSpinnerView.m */; };
+		15529BA41D2ED750007208F4 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BA31D2ED750007208F4 /* LikeButton.m */; };
 		15DB563F1D202C0700D71338 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB563E1D202C0700D71338 /* main.m */; };
 		15DB56421D202C0700D71338 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB56411D202C0700D71338 /* AppDelegate.m */; };
 		15DB564A1D202C0700D71338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DB56491D202C0700D71338 /* Assets.xcassets */; };
@@ -36,6 +38,10 @@
 		0F18D253FDF77030BA65DFE1 /* libPods-Blocstagram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Blocstagram.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15529B9C1D2C9230007208F4 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
 		15529B9D1D2C9230007208F4 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
+		15529B9F1D2ED3FA007208F4 /* CircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSpinnerView.h; sourceTree = "<group>"; };
+		15529BA01D2ED3FA007208F4 /* CircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSpinnerView.m; sourceTree = "<group>"; };
+		15529BA21D2ED750007208F4 /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
+		15529BA31D2ED750007208F4 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
 		15DB563A1D202C0700D71338 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DB563E1D202C0700D71338 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15DB56401D202C0700D71338 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,6 +115,10 @@
 				15DB56411D202C0700D71338 /* AppDelegate.m */,
 				15DB567E1D2031E300D71338 /* ImagesTableViewController.h */,
 				15DB567F1D2031E300D71338 /* ImagesTableViewController.m */,
+				15529B9F1D2ED3FA007208F4 /* CircleSpinnerView.h */,
+				15529BA01D2ED3FA007208F4 /* CircleSpinnerView.m */,
+				15529BA21D2ED750007208F4 /* LikeButton.h */,
+				15529BA31D2ED750007208F4 /* LikeButton.m */,
 				15DB568D1D22D6E700D71338 /* MediaTableViewCell.h */,
 				15DB568E1D22D6E700D71338 /* MediaTableViewCell.m */,
 				15529B9C1D2C9230007208F4 /* MediaFullScreenViewController.h */,
@@ -305,12 +315,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				15529B9E1D2C9230007208F4 /* MediaFullScreenViewController.m in Sources */,
+				15529BA11D2ED3FA007208F4 /* CircleSpinnerView.m in Sources */,
 				15DB56831D219BBB00D71338 /* User.m in Sources */,
 				15DB56891D219D0F00D71338 /* Comment.m in Sources */,
 				15DB568F1D22D6E700D71338 /* MediaTableViewCell.m in Sources */,
 				15DB56861D219C7400D71338 /* Media.m in Sources */,
 				15DB56421D202C0700D71338 /* AppDelegate.m in Sources */,
 				15DB56921D25830800D71338 /* LoginViewController.m in Sources */,
+				15529BA41D2ED750007208F4 /* LikeButton.m in Sources */,
 				15DB568C1D21A31400D71338 /* DataSource.m in Sources */,
 				15DB563F1D202C0700D71338 /* main.m in Sources */,
 				15DB56801D2031E300D71338 /* ImagesTableViewController.m in Sources */,
