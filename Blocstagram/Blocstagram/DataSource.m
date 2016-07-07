@@ -58,11 +58,11 @@
         if (!self.accessToken) {
             [self registerForAccessTokenNotification];
         } else {
-//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 NSString *fullPath = [self pathForFilename:NSStringFromSelector(@selector(mediaItems))];
                 NSArray *storedMediaItems = [NSKeyedUnarchiver unarchiveObjectWithFile:fullPath];
                 
-//                dispatch_async(dispatch_get_main_queue(), ^{
+                dispatch_async(dispatch_get_main_queue(), ^{
                     if (storedMediaItems.count > 0) {
                         NSMutableArray *mutableMediaItems = [storedMediaItems mutableCopy];
                         
@@ -73,8 +73,8 @@
                     } else {
                         [self populateDataWithParameters:nil completionHandler:nil];
                     }
-//                });
-//            });
+                });
+            });
         }
     }
     
