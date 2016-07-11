@@ -106,7 +106,7 @@ static NSParagraphStyle *oddParagraphStyle;
         
         self.likesLabel = [[UILabel alloc] init];
         self.likesLabel.backgroundColor = usernameLabelGray;
-        self.likesLabel.frame = CGRectMake(315, 15, 20, 20);
+        self.likesLabel.frame = CGRectMake(305, 15, 30, 20);
         
         self.likeButton = [[LikeButton alloc] init];
         [self.likeButton addTarget:self action:@selector(likePressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -306,8 +306,10 @@ static NSParagraphStyle *oddParagraphStyle;
     self.commentLabel.attributedText = [self commentString];
     self.likeButton.likeButtonState = mediaItem.likeState;
     
-    self.likesLabel.text = [NSString stringWithFormat:@"%ld",(long)[self.delegate likesCount:mediaItem]];
-    NSLog(@"likes: %@", self.likesLabel.text);
+    [self.delegate likesCount:mediaItem withCompletion:^(NSInteger *numberOfLikes){
+        self.likesLabel.text = [NSString stringWithFormat:@"%ld",(long)self.mediaItem.likes];
+    }];
+    
     
     [self setNeedsUpdateConstraints];
 }

@@ -374,30 +374,36 @@
     self.instagramOperationManager.responseSerializer = serializer;
 }
 
--(NSUInteger)downloadLikes:(Media *)mediaItem{
-    __block NSUInteger likes = 0;
+-(void)downloadLikes:(Media *)mediaItem withCompletion:(void (^)(NSInteger *))completionBlock {
+    __block NSInteger *likes = 0;
     
     NSDictionary *parameters = @{@"access_token": self.accessToken};
     
-    [self.instagramOperationManager GET: [NSString stringWithFormat:@"media/%@/likes", mediaItem.idNumber]
+    [self.instagramOperationManager GET: [NSString stringWithFormat:@"media/%@/", mediaItem.idNumber]
                              parameters:parameters
                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                     if ([responseObject isKindOfClass:[NSDictionary class]]) {
                                         
-                                        NSArray *likesArray = responseObject[@"data"];
+                                        NSDictionary *likesArray = responseObject[@"data"][@"likes"];
                                         
-                                        NSLog(@"lookie here: %ld", likesArray.count );
                                         
-                                        for(NSDictionary *like in likesArray){
-                                            likes++;
+                                        
+                                        likes = [likesArray[@"count"] integerValue];
+                                        
+//                                        NSLog(@"lookie here: %ld", likes );
+                                        
+//                                        for(NSDictionary *like in likesArray){
+//                                            likes++;
+//                                        }
+                                        
+                                        if (completionBlock) {
+                                            completionBlock(likes);
                                         }
                                     }
                                     
                                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                     NSLog(@"lookie noo: %@", error);
                                 }];
-    
-    return 10+likes;
 }
 
 @end

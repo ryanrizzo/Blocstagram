@@ -238,8 +238,15 @@
     cell.mediaItem = item;
 }
 
-- (NSUInteger)likesCount:(Media *)mediaItem{
-    return [[DataSource sharedInstance] downloadLikes:mediaItem];
+- (void)likesCount:(Media *)mediaItem withCompletion:(void (^)(NSInteger *))completionBlock;{
+    
+    [[DataSource sharedInstance] downloadLikes:mediaItem withCompletion:^(NSInteger *numberOfLikes) {
+        //Do something with numberOfLikes here
+        mediaItem.likes = numberOfLikes;
+        if(completionBlock){
+            completionBlock(numberOfLikes);
+        };
+    }];
 }
 
 /*

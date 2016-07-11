@@ -19,7 +19,7 @@
 - (void) cell:(MediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView;
 - (void) cell:(MediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView;
 - (void) cellDidPressLikeButton:(MediaTableViewCell *)cell;
-- (NSUInteger) likesCount:(Media *)mediaItem;
+- (NSUInteger) likesCount:(Media *)mediaItem withCompletion:(void (^)(NSInteger *))completionBlock;
 
 @end
 
