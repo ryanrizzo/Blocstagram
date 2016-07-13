@@ -285,6 +285,8 @@
 
 - (void) cellWillStartComposingComment:(MediaTableViewCell *)cell {
     self.lastSelectedCommentView = (UIView *)cell.commentView;
+    
+    
 }
 
 - (void) cell:(MediaTableViewCell *)cell didComposeComment:(NSString *)comment {
@@ -362,5 +364,6 @@
         self.tableView.scrollIndicatorInsets = scrollIndicatorInsets;
     } completion:nil];
 }
+
 
 @end

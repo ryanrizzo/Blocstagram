@@ -89,13 +89,30 @@
 - (void) setIsWritingComment:(BOOL)isWritingComment animated:(BOOL)animated {
     _isWritingComment = isWritingComment;
     
-    if (animated) {
-        [UIView animateWithDuration:0.2 animations:^{
-            [self layoutSubviews];
-        }];
-    } else {
+    [UIView animateWithDuration:.5 delay:0 usingSpringWithDamping:2 initialSpringVelocity:2 options:0 animations:^{
+        /*
+         Either cause a view's frame to directly (or indirectly) change.
+         
+         This can be done by doing one of the following:
+         
+         - someView.frame = {some frame}
+         - Update constraints before +animatedWithDuration... call and then invoke -updateConstraintsIfNeeded
+         - invoke -layoutIfNeeded
+         
+         The latter 2 cause the frames to be updated indirectly.
+         */
         [self layoutSubviews];
-    }
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+//    NSTimeInterval duration = animated ? .25 : 0.0;
+//
+//    [UIView animateWithDuration:duration animations:^{
+//        [self layoutSubviews];
+//    }];
+    
 }
 
 - (void) setText:(NSString *)text {
@@ -108,10 +125,12 @@
 #pragma mark - Button Target
 
 - (void) commentButtonPressed:(UIButton *) sender {
+    
     if (self.isWritingComment) {
         [self.textView resignFirstResponder];
-        self.textView.userInteractionEnabled = NO;
+//        self.textView.userInteractionEnabled = NO;
         [self.delegate commentViewDidPressCommentButton:self];
+        [self setIsWritingComment:NO animated:YES];
     } else {
         [self setIsWritingComment:YES animated:YES];
         [self.textView becomeFirstResponder];

@@ -329,7 +329,6 @@ static NSParagraphStyle *oddParagraphStyle;
     [self.delegate cellDidPressLikeButton:self];
 }
 
-
 + (CGFloat) heightForMediaItem:(Media *)mediaItem width:(CGFloat)width {
     // Make a cell
     MediaTableViewCell *layoutCell = [[MediaTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"layoutCell"];
@@ -368,5 +367,6 @@ static NSParagraphStyle *oddParagraphStyle;
 - (void) stopComposingComment {
     [self.commentView stopComposingComment];
 }
+
 
 @end
