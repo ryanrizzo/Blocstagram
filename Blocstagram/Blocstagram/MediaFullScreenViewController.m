@@ -54,8 +54,26 @@
     self.shareButton = [UIButton new];
     [self.shareButton addTarget:self action:@selector(shareButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
-    [self.shareButton setFrame:CGRectMake(320, 20, 50, 15)];
+    
+    NSMutableArray * constraints = [NSMutableArray array];
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:self.shareButton
+                                                        attribute:NSLayoutAttributeTopMargin
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.view
+                                                        attribute:NSLayoutAttributeTop
+                                                       multiplier:1.0
+                                                         constant:0]];
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:self.shareButton
+                                                        attribute:NSLayoutAttributeRightMargin 
+                                                        relatedBy:NSLayoutRelationEqual 
+                                                           toItem:self.view
+                                                        attribute:NSLayoutAttributeRight
+                                                       multiplier:1.0
+                                                         constant:0]];
+    
     [self.view addSubview:self.shareButton];
+    
+    [self.view addConstraints:constraints];
     
     
 }
