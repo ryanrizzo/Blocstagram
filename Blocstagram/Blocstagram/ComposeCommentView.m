@@ -89,7 +89,7 @@
 - (void) setIsWritingComment:(BOOL)isWritingComment animated:(BOOL)animated {
     _isWritingComment = isWritingComment;
     
-    [UIView animateWithDuration:.5 delay:0 usingSpringWithDamping:2 initialSpringVelocity:2 options:0 animations:^{
+    [UIView animateWithDuration:.5 delay:0 usingSpringWithDamping:.5 initialSpringVelocity:2 options:0 animations:^{
         /*
          Either cause a view's frame to directly (or indirectly) change.
          
