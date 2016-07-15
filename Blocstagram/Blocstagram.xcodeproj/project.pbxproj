@@ -11,7 +11,6 @@
 		15529BA71D301B4F007208F4 /* CameraToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BA61D301B4F007208F4 /* CameraToolbar.m */; };
 		15529BAA1D302728007208F4 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BA91D302728007208F4 /* CameraViewController.m */; };
 		15529BB01D395094007208F4 /* UIImage+ImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BAF1D395094007208F4 /* UIImage+ImageUtilities.m */; };
-		15529BB31D3964FA007208F4 /* UIImage+CameraControllerImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BB21D3964FA007208F4 /* UIImage+CameraControllerImageUtilities.m */; };
 		15DB563F1D202C0700D71338 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB563E1D202C0700D71338 /* main.m */; };
 		15DB56421D202C0700D71338 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB56411D202C0700D71338 /* AppDelegate.m */; };
 		15DB564A1D202C0700D71338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DB56491D202C0700D71338 /* Assets.xcassets */; };
@@ -46,8 +45,6 @@
 		15529BA91D302728007208F4 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		15529BAE1D395094007208F4 /* UIImage+ImageUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageUtilities.h"; sourceTree = "<group>"; };
 		15529BAF1D395094007208F4 /* UIImage+ImageUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageUtilities.m"; sourceTree = "<group>"; };
-		15529BB11D3964FA007208F4 /* UIImage+CameraControllerImageUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CameraControllerImageUtilities.h"; sourceTree = "<group>"; };
-		15529BB21D3964FA007208F4 /* UIImage+CameraControllerImageUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CameraControllerImageUtilities.m"; sourceTree = "<group>"; };
 		15DB563A1D202C0700D71338 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DB563E1D202C0700D71338 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15DB56401D202C0700D71338 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -130,8 +127,6 @@
 				15529BA61D301B4F007208F4 /* CameraToolbar.m */,
 				15529BA81D302728007208F4 /* CameraViewController.h */,
 				15529BA91D302728007208F4 /* CameraViewController.m */,
-				15529BB11D3964FA007208F4 /* UIImage+CameraControllerImageUtilities.h */,
-				15529BB21D3964FA007208F4 /* UIImage+CameraControllerImageUtilities.m */,
 				15529BAE1D395094007208F4 /* UIImage+ImageUtilities.h */,
 				15529BAF1D395094007208F4 /* UIImage+ImageUtilities.m */,
 				15DB56821D219BBB00D71338 /* User.m */,
@@ -333,7 +328,6 @@
 				15529BB01D395094007208F4 /* UIImage+ImageUtilities.m in Sources */,
 				15DB56421D202C0700D71338 /* AppDelegate.m in Sources */,
 				15DB56921D25830800D71338 /* LoginViewController.m in Sources */,
-				15529BB31D3964FA007208F4 /* UIImage+CameraControllerImageUtilities.m in Sources */,
 				15DB568C1D21A31400D71338 /* DataSource.m in Sources */,
 				15529BAA1D302728007208F4 /* CameraViewController.m in Sources */,
 				15DB563F1D202C0700D71338 /* main.m in Sources */,
