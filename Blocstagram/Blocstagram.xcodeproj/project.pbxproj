@@ -11,6 +11,9 @@
 		15529BA71D301B4F007208F4 /* CameraToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BA61D301B4F007208F4 /* CameraToolbar.m */; };
 		15529BAA1D302728007208F4 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BA91D302728007208F4 /* CameraViewController.m */; };
 		15529BB01D395094007208F4 /* UIImage+ImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BAF1D395094007208F4 /* UIImage+ImageUtilities.m */; };
+		15529BB61D3C185F007208F4 /* CropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BB51D3C185F007208F4 /* CropBox.m */; };
+		15529BB91D3C1F94007208F4 /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BB81D3C1F94007208F4 /* CropImageViewController.m */; };
+		15529BBC1D3C2880007208F4 /* ImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BBB1D3C2880007208F4 /* ImageLibraryViewController.m */; };
 		15DB563F1D202C0700D71338 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB563E1D202C0700D71338 /* main.m */; };
 		15DB56421D202C0700D71338 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB56411D202C0700D71338 /* AppDelegate.m */; };
 		15DB564A1D202C0700D71338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DB56491D202C0700D71338 /* Assets.xcassets */; };
@@ -45,6 +48,12 @@
 		15529BA91D302728007208F4 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		15529BAE1D395094007208F4 /* UIImage+ImageUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageUtilities.h"; sourceTree = "<group>"; };
 		15529BAF1D395094007208F4 /* UIImage+ImageUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageUtilities.m"; sourceTree = "<group>"; };
+		15529BB41D3C185F007208F4 /* CropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropBox.h; sourceTree = "<group>"; };
+		15529BB51D3C185F007208F4 /* CropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropBox.m; sourceTree = "<group>"; };
+		15529BB71D3C1F94007208F4 /* CropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropImageViewController.h; sourceTree = "<group>"; };
+		15529BB81D3C1F94007208F4 /* CropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropImageViewController.m; sourceTree = "<group>"; };
+		15529BBA1D3C2880007208F4 /* ImageLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLibraryViewController.h; sourceTree = "<group>"; };
+		15529BBB1D3C2880007208F4 /* ImageLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLibraryViewController.m; sourceTree = "<group>"; };
 		15DB563A1D202C0700D71338 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DB563E1D202C0700D71338 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15DB56401D202C0700D71338 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -122,6 +131,10 @@
 				15DB568E1D22D6E700D71338 /* MediaTableViewCell.m */,
 				15529B9C1D2C9230007208F4 /* MediaFullScreenViewController.h */,
 				15529B9D1D2C9230007208F4 /* MediaFullScreenViewController.m */,
+				15529BB71D3C1F94007208F4 /* CropImageViewController.h */,
+				15529BB81D3C1F94007208F4 /* CropImageViewController.m */,
+				15529BBA1D3C2880007208F4 /* ImageLibraryViewController.h */,
+				15529BBB1D3C2880007208F4 /* ImageLibraryViewController.m */,
 				15DB56811D219BBB00D71338 /* User.h */,
 				15529BA51D301B4F007208F4 /* CameraToolbar.h */,
 				15529BA61D301B4F007208F4 /* CameraToolbar.m */,
@@ -129,6 +142,8 @@
 				15529BA91D302728007208F4 /* CameraViewController.m */,
 				15529BAE1D395094007208F4 /* UIImage+ImageUtilities.h */,
 				15529BAF1D395094007208F4 /* UIImage+ImageUtilities.m */,
+				15529BB41D3C185F007208F4 /* CropBox.h */,
+				15529BB51D3C185F007208F4 /* CropBox.m */,
 				15DB56821D219BBB00D71338 /* User.m */,
 				15DB56841D219C7400D71338 /* Media.h */,
 				15DB56851D219C7400D71338 /* Media.m */,
@@ -328,10 +343,13 @@
 				15529BB01D395094007208F4 /* UIImage+ImageUtilities.m in Sources */,
 				15DB56421D202C0700D71338 /* AppDelegate.m in Sources */,
 				15DB56921D25830800D71338 /* LoginViewController.m in Sources */,
+				15529BB91D3C1F94007208F4 /* CropImageViewController.m in Sources */,
 				15DB568C1D21A31400D71338 /* DataSource.m in Sources */,
 				15529BAA1D302728007208F4 /* CameraViewController.m in Sources */,
 				15DB563F1D202C0700D71338 /* main.m in Sources */,
 				15DB56801D2031E300D71338 /* ImagesTableViewController.m in Sources */,
+				15529BBC1D3C2880007208F4 /* ImageLibraryViewController.m in Sources */,
+				15529BB61D3C185F007208F4 /* CropBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
