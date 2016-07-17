@@ -20,7 +20,7 @@
 
 - (instancetype) init {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(100, 100);
+    layout.itemSize = CGSizeMake(85, 85);
     
     return [super initWithCollectionViewLayout:layout];
 }
@@ -47,7 +47,7 @@
     [super viewWillLayoutSubviews];
     
     CGFloat width = CGRectGetWidth(self.view.frame);
-    CGFloat minWidth = 100;
+    CGFloat minWidth = 85;
     NSInteger divisor = width / minWidth;
     CGFloat cellSize = width / divisor;
     
