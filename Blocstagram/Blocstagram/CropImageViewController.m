@@ -91,9 +91,9 @@
     
     
     self.cropBox.frame = cropRect;
-    self.cropBox.center = CGPointMake(size.width / 2, size.height / 2 -38);
+    self.cropBox.center = CGPointMake(size.width / 2, size.height / 2 - self.topLayoutGuide.length / 2);
     self.scrollView.frame = self.cropBox.frame;
-    self.scrollView.clipsToBounds =NO;
+    self.scrollView.clipsToBounds = NO;
     
     [self recalculateZoomScale];
     

@@ -242,17 +242,20 @@
                 [self.delegate cameraViewController:self didCompleteWithImage:image];
             });
         } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:error.localizedDescription message:error.localizedRecoverySuggestion preferredStyle:UIAlertControllerStyleAlert];
-                [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK button") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-                    [self.delegate cameraViewController:self didCompleteWithImage:nil];
-                }]];
-                
-                [self presentViewController:alertVC animated:YES completion:nil];
-            });
+            
+                [self presentAlertWithTitle: NSLocalizedString(@"OK", @"OK button") error: error action:nil];
             
         }
     }];
+}
+
+- (void) presentAlertWithTitle:(NSString *) title error:(NSError *) error action:(void (^)(void)) actionBlock {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:error.localizedDescription message:error.localizedRecoverySuggestion preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addAction:[UIAlertAction actionWithTitle:title style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        [self.delegate cameraViewController:self didCompleteWithImage:nil];
+    }]];
+    [self presentViewController:alertVC animated:YES completion:nil];
+
 }
 
 #pragma mark - ImageLibraryViewControllerDelegate
