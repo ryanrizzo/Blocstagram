@@ -27,6 +27,6 @@
 
 @property (nonatomic, weak) id <MediaTableViewCellDelegate> delegate;
 
-+ (CGFloat) heightForMediaItem:(Media *)mediaItem width:(CGFloat)width;
++ (CGFloat) heightForMediaItem:(Media *)mediaItem width:(CGFloat)width traitCollection:(UITraitCollection *) traitCollection;
 
 @end

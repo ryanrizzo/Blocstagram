@@ -62,6 +62,7 @@
     options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
     
     self.result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:options];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
