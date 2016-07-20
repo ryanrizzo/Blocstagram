@@ -7,6 +7,7 @@
 //
 
 #import "PostToInstagramViewController.h"
+#import "PostToInstaCollectionViewCell.h"
 
 @interface PostToInstagramViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -78,7 +79,7 @@
         self.navigationItem.rightBarButtonItem = self.sendBarButton;
     }
     
-    [self.filterCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    [self.filterCollectionView registerClass:[PostToInstaCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.filterCollectionView.backgroundColor = [UIColor whiteColor];
@@ -134,8 +135,8 @@
     return self.filterImages.count;
 }
 
-- (UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+- (PostToInstaCollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    PostToInstaCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
     static NSInteger imageViewTag = 1000;
     static NSInteger labelTag = 1001;
@@ -339,6 +340,41 @@
             [composite setValue:darkScratchesImage forKey:kCIInputBackgroundImageKey];
             
             [self addCIImageToCollectionView:composite.outputImage withFilterTitle:NSLocalizedString(@"Film", @"Film Filter")];
+        }
+    }];
+    
+    // First filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *oneFilter = [CIFilter filterWithName:@"CIConvolution5X5"];
+        CIFilter *tiltFilter = [CIFilter filterWithName:@"CIStraightenFilter"];
+        
+        if (oneFilter) {
+            [oneFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            
+            CIVector *oneVector = [CIVector vectorWithString:@"[0.5 0.5 0.5 0 0 0.5 0 0.5 0 0.05 0 0 0 0.5 0 0 0.5 0 0.5 0 0.05 0 0 0 0.5]"];
+            [oneFilter setValue:oneVector forKeyPath:@"inputWeights"];
+            
+            CIImage *result = oneFilter.outputImage;
+            
+            if (tiltFilter) {
+                [tiltFilter setValue:result forKeyPath:kCIInputImageKey];
+                [tiltFilter setValue:@0.7 forKeyPath:kCIInputAngleKey];
+                result = tiltFilter.outputImage;
+            }
+            
+            [self addCIImageToCollectionView:result withFilterTitle:NSLocalizedString(@"Wild", @"Wild Filter")];
+        }
+    }];
+    
+    // New filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *newFilter = [CIFilter filterWithName:@"CIColorInvert"];
+        
+        if (newFilter) {
+            [newFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            [self addCIImageToCollectionView:newFilter.outputImage withFilterTitle:NSLocalizedString(@"Invert", @"Invert Filter")];
         }
     }];
 }
