@@ -16,6 +16,7 @@
 		15529BBC1D3C2880007208F4 /* ImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BBB1D3C2880007208F4 /* ImageLibraryViewController.m */; };
 		15529BBF1D3D5828007208F4 /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BBE1D3D5828007208F4 /* PostToInstagramViewController.m */; };
 		155896A71D3FEBE100CDDF90 /* PostToInstaCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 155896A61D3FEBE100CDDF90 /* PostToInstaCollectionViewCell.m */; };
+		155896A91D49552300CDDF90 /* UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 155896A81D49552300CDDF90 /* UserTests.m */; };
 		15DB563F1D202C0700D71338 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB563E1D202C0700D71338 /* main.m */; };
 		15DB56421D202C0700D71338 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB56411D202C0700D71338 /* AppDelegate.m */; };
 		15DB564A1D202C0700D71338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DB56491D202C0700D71338 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		15529BBE1D3D5828007208F4 /* PostToInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToInstagramViewController.m; sourceTree = "<group>"; };
 		155896A51D3FEBE100CDDF90 /* PostToInstaCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToInstaCollectionViewCell.h; sourceTree = "<group>"; };
 		155896A61D3FEBE100CDDF90 /* PostToInstaCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToInstaCollectionViewCell.m; sourceTree = "<group>"; };
+		155896A81D49552300CDDF90 /* UserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTests.m; sourceTree = "<group>"; };
 		15DB563A1D202C0700D71338 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DB563E1D202C0700D71338 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15DB56401D202C0700D71338 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				15DB56901D25830800D71338 /* LoginViewController.h */,
 				15DB56911D25830800D71338 /* LoginViewController.m */,
 				15DB56491D202C0700D71338 /* Assets.xcassets */,
+				155896A81D49552300CDDF90 /* UserTests.m */,
 				15DB564B1D202C0700D71338 /* LaunchScreen.storyboard */,
 				15DB564E1D202C0700D71338 /* Info.plist */,
 				15DB563D1D202C0700D71338 /* Supporting Files */,
@@ -349,6 +352,7 @@
 				15DB56891D219D0F00D71338 /* Comment.m in Sources */,
 				15529BA71D301B4F007208F4 /* CameraToolbar.m in Sources */,
 				15DB568F1D22D6E700D71338 /* MediaTableViewCell.m in Sources */,
+				155896A91D49552300CDDF90 /* UserTests.m in Sources */,
 				15DB56861D219C7400D71338 /* Media.m in Sources */,
 				15529BB01D395094007208F4 /* UIImage+ImageUtilities.m in Sources */,
 				15DB56421D202C0700D71338 /* AppDelegate.m in Sources */,
