@@ -60,6 +60,7 @@
         self.sendBarButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Send", @"Send button") style:UIBarButtonItemStyleDone target:self action:@selector(sendButtonPressed:)];
         
         [self addFiltersToQueue];
+        
     }
     
     return self;
@@ -69,6 +70,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.previewImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.filterCollectionView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.sendButton.translatesAutoresizingMaskIntoConstraints = NO;
     
     [self.view addSubview:self.previewImageView];
     [self.view addSubview:self.filterCollectionView];
@@ -85,6 +89,8 @@
     self.filterCollectionView.backgroundColor = [UIColor whiteColor];
     
     self.navigationItem.title = NSLocalizedString(@"Apply Filter", @"apply filter view title");
+    
+    [self createConstraints];
 }
 
 #pragma mark - Buttons
@@ -111,7 +117,7 @@
         edgeSize /= 1.5;
     }
     
-    self.previewImageView.frame = CGRectMake(0, self.topLayoutGuide.length, edgeSize, edgeSize);
+    self.previewImageView.frame = CGRectMake(0, 38 , edgeSize, edgeSize);
     
     CGFloat buttonHeight = 50;
     CGFloat buffer = 10;
@@ -132,6 +138,36 @@
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.filterCollectionView.collectionViewLayout;
     flowLayout.itemSize = CGSizeMake(CGRectGetHeight(self.filterCollectionView.frame) - 20, CGRectGetHeight(self.filterCollectionView.frame));
 }
+
+- (void) createConstraints {
+    NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_sendButton, _previewImageView, _filterCollectionView);
+    
+    NSArray *imagePreviewHorizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_previewImageView]|" options:0 metrics:nil views:viewDictionary];
+    
+    NSArray *filterHorizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_filterCollectionView]|" options:0 metrics:nil views:viewDictionary];
+    
+    NSArray *sendButtonHorizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[_sendButton]-20-|" options:0 metrics:nil views:viewDictionary];
+    
+//    NSArray *imagePreviewVerticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_previewImageView(==500)]|" options:0 metrics:nil views:viewDictionary];
+    
+    NSArray *viewVerticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_previewImageView][_filterCollectionView]->=10-[_sendButton]|" options:kNilOptions metrics:nil views:viewDictionary];
+
+    [self.view addConstraints:viewVerticalConstraints];
+    [self.view addConstraints:imagePreviewHorizontalConstraints];
+    [self.view addConstraints:filterHorizontalConstraints];
+    [self.view addConstraints:sendButtonHorizontalConstraints];
+    
+    
+    
+//    NSArray *allConstraintArrays = @[sendButtonVerticalConstraints, viewVerticalConstraints];
+//    
+//    for (NSArray *constraintsArray in allConstraintArrays) {
+//        for (NSLayoutConstraint *constraint in constraintsArray) {
+//            [self addConstraint:constraint];
+//        }
+//    }
+}
+
 
 #pragma mark - UICollectionView delegate and data source
 

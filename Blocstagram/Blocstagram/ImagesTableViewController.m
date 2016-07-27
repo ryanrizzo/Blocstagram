@@ -19,6 +19,8 @@
 
 @interface ImagesTableViewController () <MediaTableViewCellDelegate, CameraViewControllerDelegate, ImageLibraryViewControllerDelegate>
 
+@property (nonatomic, strong) UITapGestureRecognizer *tap;
+
 @end
 
 @implementation ImagesTableViewController
@@ -63,11 +65,7 @@
         self.navigationItem.rightBarButtonItem = cameraButton;
     }
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -207,6 +205,11 @@
     } else {
         return 150;
     }
+}
+
+- (void) tapFired:(UITapGestureRecognizer *)tap{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"Tap");
 }
 
 #pragma mark - MediaTableViewCellDelegate

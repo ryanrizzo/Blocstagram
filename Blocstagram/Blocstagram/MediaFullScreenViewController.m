@@ -11,6 +11,8 @@
 
 @interface MediaFullScreenViewController () <UIScrollViewDelegate>
 
+@property (nonatomic, strong) UITapGestureRecognizer *outsideTap;
+
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
 
@@ -39,13 +41,18 @@
     // #3
     self.scrollView.contentSize = self.media.image.size;
     
+    self.outsideTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(outsideTapFired:)];
+    [self.outsideTap setNumberOfTapsRequired:1];
+    self.outsideTap.cancelsTouchesInView = NO;
+    [self.view.window addGestureRecognizer:self.outsideTap];
+    
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
     
     self.doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapFired:)];
     self.doubleTap.numberOfTapsRequired = 2;
     
     [self.tap requireGestureRecognizerToFail:self.doubleTap];
-    
+    [self.outsideTap requireGestureRecognizerToFail:self.doubleTap];
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
     
@@ -137,6 +144,18 @@
 }
 
 #pragma mark - Gesture Recognizers
+
+- (void) outsideTapFired:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        CGPoint location = [sender locationInView:nil];
+        if (![self.view pointInside:[self.view convertPoint:location fromView:self.view.window] withEvent:nil])
+        {
+            [self.view.window removeGestureRecognizer:sender];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }
+}
 
 - (void) tapFired:(UITapGestureRecognizer *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
