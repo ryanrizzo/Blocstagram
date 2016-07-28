@@ -150,7 +150,7 @@
     
 //    NSArray *imagePreviewVerticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_previewImageView(==500)]|" options:0 metrics:nil views:viewDictionary];
     
-    NSArray *viewVerticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(40)-[_previewImageView(400)]-(>=10)-[_filterCollectionView(100)]-(>=10)-[_sendButton]-(>=10)-|" options:kNilOptions metrics:nil views:viewDictionary];
+    NSArray *viewVerticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(40)-[_previewImageView(400)]-(>=10)-[_filterCollectionView(100)]-(>=30)-[_sendButton]-(>=10)-|" options:kNilOptions metrics:nil views:viewDictionary];
 
     [self.view addConstraints:viewVerticalConstraints];
     [self.view addConstraints:imagePreviewHorizontalConstraints];
