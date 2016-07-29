@@ -31,4 +31,10 @@ typedef void (^NewItemCompletionBlock)(NSError *error);
 
 - (void) downloadImageForMediaItem:(Media *)mediaItem;
 
+- (void) toggleLikeOnMediaItem:(Media *)mediaItem withCompletionHandler:(void (^)(void))completionHandler;
+
+-(NSUInteger)downloadLikes:(Media *)mediaItem withCompletion:(void (^)(NSInteger *))completionBlock;
+
+- (void) commentOnMediaItem:(Media *)mediaItem withCommentText:(NSString *)commentText;
+
 @end

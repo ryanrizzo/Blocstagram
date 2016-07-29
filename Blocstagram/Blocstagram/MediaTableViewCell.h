@@ -11,13 +11,18 @@
 #import "Comment.h"
 #import "User.h"
 
-@class Media, MediaTableViewCell;
+@class Media, MediaTableViewCell, ComposeCommentView;
 
 @protocol MediaTableViewCellDelegate <NSObject>
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
 
 - (void) cell:(MediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView;
 - (void) cell:(MediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView;
+- (void) cellDidPressLikeButton:(MediaTableViewCell *)cell;
+- (NSUInteger) likesCount:(Media *)mediaItem withCompletion:(void (^)(NSInteger *))completionBlock;
+- (void) cellWillStartComposingComment:(MediaTableViewCell *)cell;
+- (void) cell:(MediaTableViewCell *)cell didComposeComment:(NSString *)comment;
+
 
 @end
 
@@ -27,6 +32,10 @@
 
 @property (nonatomic, weak) id <MediaTableViewCellDelegate> delegate;
 
+@property (nonatomic, strong, readonly) ComposeCommentView *commentView;
+
 + (CGFloat) heightForMediaItem:(Media *)mediaItem width:(CGFloat)width traitCollection:(UITraitCollection *) traitCollection;
+
+- (void) stopComposingComment;
 
 @end
