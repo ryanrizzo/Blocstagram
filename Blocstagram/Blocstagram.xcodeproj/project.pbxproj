@@ -19,6 +19,7 @@
 		15529BBC1D3C2880007208F4 /* ImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BBB1D3C2880007208F4 /* ImageLibraryViewController.m */; };
 		15529BBF1D3D5828007208F4 /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15529BBE1D3D5828007208F4 /* PostToInstagramViewController.m */; };
 		155896A71D3FEBE100CDDF90 /* PostToInstaCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 155896A61D3FEBE100CDDF90 /* PostToInstaCollectionViewCell.m */; };
+		157E0FBE1D50128200F65A18 /* UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 155896A81D49552300CDDF90 /* UserTests.m */; };
 		15DB563F1D202C0700D71338 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB563E1D202C0700D71338 /* main.m */; };
 		15DB56421D202C0700D71338 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB56411D202C0700D71338 /* AppDelegate.m */; };
 		15DB564A1D202C0700D71338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DB56491D202C0700D71338 /* Assets.xcassets */; };
@@ -381,6 +382,7 @@
 				15529BBC1D3C2880007208F4 /* ImageLibraryViewController.m in Sources */,
 				155896A71D3FEBE100CDDF90 /* PostToInstaCollectionViewCell.m in Sources */,
 				15529BB61D3C185F007208F4 /* CropBox.m in Sources */,
+				157E0FBE1D50128200F65A18 /* UserTests.m in Sources */,
 				15529BBF1D3D5828007208F4 /* PostToInstagramViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
