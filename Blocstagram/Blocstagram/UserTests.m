@@ -9,6 +9,8 @@
 #import <XCTest/XCTest.h>
 #import "User.h"
 #import "Media.h"
+#import "MediaTableViewCell.h"
+#import "ImagesTableViewController.h"
 
 @interface UserTests : XCTestCase
 
@@ -43,34 +45,42 @@
 - (void)testThatMediaInitializationWorks
 {
     NSDictionary *sourceDictionary = @{@"id": @"8675309",
-                                       @"user" : @"http://www.example.com/example.jpg",
-                                       @"image": {
-                                           @"standard_resolution" : {
-                                               @"url" : @"2.jpg"
-                                           }
-                                       }: [UIImage imageNamed:@"2.jpg"],
+                                       @"user": @"ryan",
+                                       @"images" : @{
+                                               @"standard resolution": @{
+                                                       @"url": @"http://www.example.com/example.jpg"
+                                                       }
+                                               },
                                        @"caption" : @"blah",
                                        @"comments" : @[@"great photo", @"awesome!"]};
     Media *testMedia = [[Media alloc] initWithDictionary:sourceDictionary];
     
+    
     XCTAssertEqualObjects(testMedia.idNumber, sourceDictionary[@"id"], @"The ID number should be equal");
-    XCTAssertEqualObjects(testMedia.mediaURL, [NSURL URLWithString:sourceDictionary[@"mediaURL"]], @"The mediaURL should be equal");
-    XCTAssertEqualObjects(testMedia.image, sourceDictionary[@"image"], @"The image should be equal");
+    
+    XCTAssertEqualObjects(testMedia.user, sourceDictionary[@"user"], @"The ID number should be equal");
+    
+    XCTAssertEqualObjects(testMedia.image, sourceDictionary[@"image"][@"standard_url"][@"url"], @"The image should be equal");
     XCTAssertEqualObjects(testMedia.caption, sourceDictionary[@"caption"], @"The caption should be equal");
     XCTAssertEqualObjects(testMedia.comments, sourceDictionary[@"comments"], @"The comments should be equal");
 }
 
 - (void) testThatHeightForMediaItemWorks
 {
-    NSDictionary *sourceDictionary = @{@"idNumber": @"8675309",
-                                       @"mediaURL" : @"http://www.example.com/example.jpg",
-                                       @"image" : [UIImage imageNamed:@"2.jpg"],
+    NSDictionary *sourceDictionary = @{@"id": @"8675309",
+                                       @"user": @"ryan",
+                                       @"images" : @{
+                                               @"standard resolution": @{
+                                                       @"url": @"http://www.example.com/example.jpg"
+                                                       }
+                                               },
                                        @"caption" : @"blah",
                                        @"comments" : @[@"great photo", @"awesome!"]};
     Media *testMedia = [[Media alloc] initWithDictionary:sourceDictionary];
+    ImagesTableViewController *tableViewController = [[ImagesTableViewController alloc] init];
     
-    CGFloat testResult = [MediaTableViewCell heightForMediaItem:testMedia width:ImagesTableViewController.view.frame traitCollection:ImagesTableViewController.traitCollection.horizontalSizeClass];
-    
+    CGFloat testResult = [MediaTableViewCell heightForMediaItem:testMedia width:tableViewController.view.frame.size.width traitCollection:tableViewController.traitCollection];
+    XCTAssertEqual(testResult, 0);
 }
 
 
