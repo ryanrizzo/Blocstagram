@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PostToInstaCollectionViewCell : UICollectionViewCell
-
+@property (strong, nonatomic) UIImageView *thumbnail;
+@property (strong, nonatomic) UILabel *label;
 @end
